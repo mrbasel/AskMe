@@ -44,4 +44,5 @@ def create_app(config_class=Config):
     # Add function to jinja global functions
     app.jinja_env.globals.update(findQuestion=findQuestion)
 
+    db.create_all()
     return app
