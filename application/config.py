@@ -1,8 +1,8 @@
 import os
 
 class Config:
-    SQLALCHEMY_DATABASE_URI = os.environ.get('askme_db_uri')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SECRET_KEY = os.environ.get('askme_secret_key')
+    SECRET_KEY = os.environ.get('SECRET_KEY')
     UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
     ALLOWED_EXTENTIONS = ['png', 'svg']
