@@ -46,8 +46,8 @@ def is_allowed(filename):
 @profile.route('/profile/edit-photo', methods=['POST', 'GET'])
 def editPhoto():
      if request.method == 'POST':
-         flash("You can't change your image currently, please try again later", 'error')
-         return redirect(url_for('main.home'))
+         flash("You can't change your image currently, please try again later", 'info')
+         return redirect(url_for('profile.profilePage'))
 
          if request.files:
              image = request.files['image']
