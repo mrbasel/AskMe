@@ -10,12 +10,6 @@ class RegisterationForm(FlaskForm):
     confirmPassword = PasswordField('ConfirmPassword', validators=[InputRequired()])
     submit = SubmitField('Submit')
 
-    # def validate_username(self, username):
-    #     user = User.query.filter_by(username=username).first()
-    #     # email = User.query.filter_by(email=email).first()
-    #     if user:
-    #         print('!!!')
-    #         raise ValidationError('Username already exits')
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[ InputRequired() ])

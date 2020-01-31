@@ -5,3 +5,4 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     SECRET_KEY = os.environ.get('askme_secret_key')
     UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
+    ALLOWED_EXTENTIONS = ['png', 'svg']

@@ -40,10 +40,8 @@ def deleteAnswer(answerId):
     return redirect(url_for('profile.profilePage'))
 
 
-
-ALLOWED_EXTENTIONS = ['png', 'svg']
 def is_allowed(filename):
-    return True if filename.rsplit('.', 1)[1] in ALLOWED_EXTENTIONS else False
+    return True if filename.rsplit('.', 1)[1] in current_app.config['ALLOWED_EXTENTIONS'] else False
 
 @profile.route('/profile/edit-photo', methods=['POST', 'GET'])
 def editPhoto():
