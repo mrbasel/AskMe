@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('auth.static', filename='auth.css') }}">
+{% endblock %}
+
+
+
+
+
+{% block content %}
+<main>
+  <div id="formWrapper">
+
+<form id="register-form" method="POST" action="{{ url_for('auth.registerationPage') }}">
+  {% with messages = get_flashed_messages(category_filter=["formError"]) %}
+  {% if messages %}
+    <ul class=errors>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+<img src="{{ url_for('static', filename='icons/arrow-back.svg') }}" onclick="window.location ='/' " alt="back-arrow" class="back-btn">
+{{ form.csrf_token() }}
+
+<div class="form-columns">
+  <div class="form-column">{{ form.username.label(class="label") }} {{ form.username(class="form-input") }}</div>
+  <div class="form-column">{{ form.email.label(class="label") }} {{ form.email(class="form-input") }}</div>
+  <div class="form-column">{{ form.password.label(class="label") }} {{ form.password(class="form-input") }}</div>
+  <div class="form-column">{{ form.confirmPassword.label(class="label") }} {{ form.confirmPassword(class="form-input") }}</div>
+
+  <div class="form-column">{{ form.submit(class='register-submit-btn') }}</div>
+</div>
+
+    </form>
+
+    <div class="redirect">
+      <p>Already registered? Login <a href="{{ url_for('auth.loginPage') }}">here</a></p>
+    </div>
+  </div>
+
+</main>
+{% endblock %}

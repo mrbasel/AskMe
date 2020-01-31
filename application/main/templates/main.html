@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+
+{% block content %}
+<main>
+  {% with messages =  get_flashed_messages(with_categories=true) %}
+  <ul id="flashMessages">
+    {% for category, message in messages %}
+    <li class="flash-message {{ category }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+  {% endwith %}
+
+  <div class="column1">
+    <section id="question-form-wrapper">
+      <form id="question-form" action="{{ url_for('posts.askQuestion') }}" method="POST">
+        <input id="question-input" type="text" name="question" autocomplete="off" placeholder="What's on your mind?" required>
+        <input id="tags-input" type='text' name="tags" value="" placeholder="Tags:">
+        <input class="form-submit-btn btn" type="submit" name="submit" value="Submit">
+      </form>
+    </section>
+    {% if questions %}
+    <section id="questions-feed">
+      {% endif %}
+      {% for question in questions %}
+      <div class="question">
+        {% if question.tags %}
+        <div class="question-tags">#{{ question.tags }}</div>
+        {% else %}
+        <div class="question-tags">#..</div>
+        {% endif %}
+
+        <h3 class="question-main">{{ question.content }}</h3>
+        <div class="action-bar">
+          <div onclick="window.location = '{{ url_for('posts.answerPage', questionId= question.id) }}'" class="action-icon-wrapper answer-btn-wrapper">
+            <img class="action-bar-item" src="{{  url_for('static', filename='icons/bxs-edit.svg')  }}" alt="">
+            <span class="answer-btn">Answer</span>
+          </div>
+          
+        <a class="answers-button" href="{{ url_for('posts.answersPage', questionId= question.id) }}">{{ question.answers|length }} Answers</a>
+      </div>
+    </div>
+    {% endfor %}
+
+  </section>
+</div>
+
+</main>
+
+<footer>
+  <div class="copyright">
+    <p>Made by <a href="https://github.com/mrbasel">Basel Al Nassr</a></p>
+    <p>© 2020 AskMe. All rights reserved. </p>
+  </div>
+</footer>
+
+
+{% endblock %}

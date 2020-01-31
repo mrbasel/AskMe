@@ -1,0 +1,64 @@
+main {
+  margin: 0 auto;
+  width: 40%;
+  text-align: center;
+}
+
+.question {
+  margin-bottom: 1em;
+  background-color: #fff;
+  padding-bottom: 1em;
+
+}
+
+.question-tag {
+  text-align: left;
+  margin: .5em 1em;
+  color: silver;
+  font-size: .8em;
+}
+
+
+#answerForm {
+
+}
+
+#answerForm textarea {
+  padding: .5em;
+  margin: 1em 0;
+  width: 100%;
+  font-size: 1.2em;
+  line-height: 1.5;
+  border: none;
+  border: 1px solid #eee;
+
+}
+
+#answerForm button {
+  padding: .5em 3em;
+  margin: 2em;
+  background-color: #4499ff;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+
+}
+
+
+/* Media queries */
+
+@media screen and (max-width:800px){
+  main {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width:400px){
+  main {
+    width: 80%;
+  }
+  button {
+    padding: 3em;
+  }
+}

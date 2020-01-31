@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="{{ url_for('auth.static', filename='auth.css') }}">
+{% endblock %}
+
+
+
+
+
+{% block content %}
+<main>
+  <div id="formWrapper">
+    <!--  -->
+    {% if dbErrorMsg %}
+    <ul class="errors">
+      <li>{{ dbErrorMsg }}</li>
+    </ul>
+    {% endif %}
+
+<form id="register-form" method="POST" action="{{ url_for('auth.loginPage') }}">
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=errors>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<img src="{{ url_for('static', filename='icons/arrow-back.svg') }}" onclick="window.location ='/' " alt="back-arrow" class="back-btn">
+{{ form.csrf_token() }}
+      <div class="form-column">{{ form.username.label(class="label") }} {{ form.username(class="form-input") }}</div>
+      <div class="form-column">{{ form.password.label(class="label") }} {{ form.password(class="form-input") }}</div>
+      <div class="form-column">{{ form.submit(class='register-submit-btn') }}</div>
+    </form>
+    <div class="redirect">
+      <p>Don't have an account? Register <a href="{{ url_for('auth.registerationPage') }}">here</a></p>
+    </div>
+  </div>
+
+</main>
+{% endblock %}

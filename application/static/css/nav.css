@@ -1,0 +1,139 @@
+
+/* Core styles */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: #333;
+  background-color: #fafafa;
+  height: 100%;
+  position: relative;
+
+}
+
+
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* Nav */
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: .5em;
+  background-color: #49f;
+  color: #fff;
+  box-shadow: 0 0 8px #333;
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+.search-bar, form, input {
+  display: inline;
+}
+
+.form {
+
+}
+
+#nav-searchbar {
+  padding: .5em;
+}
+
+.logo {
+  display: inline;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+#nav-list,.logo {
+  margin: 0 2em;
+}
+
+#nav-list {
+}
+
+.nav-item {
+  display: inline;
+  margin: 0 2em;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.nav-item {
+  color: #fff;
+
+}
+
+.username {
+  text-decoration: underline;
+}
+
+/* mobile burger menu */
+
+#checkbox {
+  display: none;
+  opacity: 0;
+}
+
+#burger-icon {
+  display: none;
+  position: absolute;
+  font-size: 2em;
+  z-index: 2;
+}
+
+#checkbox:checked ~ #nav-list {
+  display: flex;
+  justify-content: space-around;
+  top: 53px;
+  right: 0;
+}
+
+
+/* Media queries */
+
+@media screen and (max-width:720px){
+  .nav-item, .logo {
+    margin: 0 1em;
+  }
+}
+
+@media screen and (max-width:550px){
+
+  nav {
+    margin-bottom: 4em;
+  }
+
+  #checkbox, #burger-icon {
+    display: block;
+  }
+
+  #nav-list {
+    display: none;
+    position: absolute;
+    width: 100%;
+    margin: 0;
+    padding: .5em;
+    background-color: #49f;
+  }
+
+  #burger-icon {
+    margin: 0 .5em;
+    right: 0;
+  }
+
+}

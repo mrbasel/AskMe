@@ -1,0 +1,330 @@
+
+/* Core styles */
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: #333;
+  background-color: #fafafa;
+  height: 100%;
+  position: relative;
+  min-height: 100vh;
+
+}
+
+p {
+  line-height: 1.5;
+
+}
+
+li, a {
+  text-decoration: none;
+  list-style: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.btn {
+  padding: .2em 2em;
+  background-color: #7cc;
+  border: 1px solid #77c;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+/* Nav bar  */
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  /* justify-content: space-between; */
+  align-items: center;
+  padding: .5em;
+  margin-bottom: 2em;
+  background-color: #49f;
+  color: #fff;
+  box-shadow: 0 0 8px #333;
+}
+
+.search-bar, form, input {
+  display: inline;
+}
+
+.form {
+
+}
+
+#nav-searchbar {
+  padding: .5em;
+}
+
+.logo {
+  display: inline;
+  font-size: 2rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+#nav-list,.logo {
+  margin: 0 2em;
+}
+
+#nav-list {
+  /* display: flex; */
+  /* justify-content: space-between; */
+}
+
+.nav-item {
+  display: inline;
+  margin: 0 2em;
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.nav-link {
+  color: #fff;
+
+}
+
+.username {
+  text-decoration: underline;
+}
+
+
+/* Main */
+
+
+main {
+  min-height: calc(100vh - 64 - 53.6 )
+  text-align: center;
+}
+
+.column1 {
+  width: 40%;
+  margin: 0 auto;
+  padding: 1em;
+
+}
+
+/* Section "Question form" */
+
+#question-form-wrapper {
+  /* padding: 1em; */
+  border: 1px solid #eee;
+  background-color: #fff;
+
+}
+
+#question-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#question-input {
+  font-size: 1.5em;
+  padding: .3em;
+  border: none;
+  text-align: center;
+  width: 80%;
+
+}
+
+#tags-input {
+  display: block;
+  font-size: 1em;
+  border: none;
+  text-align: center;
+
+
+}
+
+.form-submit-btn {
+  display: block;
+  margin: 1em auto;
+}
+
+
+/* Section 'Question feed' */
+
+#questions-feed {
+  margin: 2em 0;
+}
+
+
+/* Question card */
+
+.question {
+  position: relative;
+  border: 1px solid #eee;
+  margin: .5em auto;
+  background-color: #fff;
+  color: #333;
+  /* box-shadow: 0 0 5px #333; */
+
+}
+
+.question-tags {
+  text-align: left;
+  margin: .5em 1em;
+  color: silver;
+  font-size: .8em;
+}
+
+.question-main {
+  text-align-last: left;
+  font-size: 1.3em;
+  font-weight: 550;
+  margin: .5em 1em;
+  text-align: left;
+
+}
+
+.action-bar {
+  display: flex;
+  padding: .5em;
+}
+
+
+
+.action-icon-wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 .5em;
+}
+
+.answer-btn {
+  margin: 0 .5em;
+}
+
+.answer-btn-wrapper:hover {
+  background-color: #eee;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.like-num {
+  margin-left: .5em;
+  color: grey;
+  align-self: flex-end;
+  font-size: 14px;
+}
+
+.answers-button {
+  position: absolute;
+  right: 1em;
+  color: grey;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* Flashed messages */
+
+#flashMessages {
+}
+
+.flash-message {
+  display: relative;
+  position: absolute;
+  top: 53.6px;
+  /* left: 0; */
+  /* height: 53.6px; */
+  width: 100%;
+  padding: .2em 3em;
+  text-align: center;
+  color: #fff;
+  transition: .5s;
+  font-size: 1.2em;
+}
+
+.success {
+  background-color: #16dd6e;
+}
+
+.info {
+  background-color: #47a8f5;
+}
+
+
+
+
+/* footer */
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  /* height: 4em; */
+  background-color: #eee;
+}
+
+
+.social-links {
+  margin: 0 3em;
+}
+
+.social-img {
+  width: 24px;
+  height: 24px;
+  margin: 0 .5em;
+  cursor: pointer;
+}
+
+.copyright a {
+  color: #0064e9;
+}
+
+
+/* media queries */
+
+/* Nav */
+
+@media screen and (max-width:720px){
+  #nav-list,.logo {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width:650px){
+  nav {
+    justify-content:flex-start;
+  }
+  .logo {
+    margin: 0 .5em;
+  }
+}
+
+@media screen and (max-width:1000px){
+  .column1 {
+    width: 60%;
+  }
+}
+
+/* @media screen and (max-width: 550px){
+  .column1 {
+    width: 80%;
+  }
+} */
+
+
+@media screen and (max-width: 550px){
+  .column1 {
+    width: 100%;
+  }
+  .copyright p {
+    font-size: 1.2em
+  }
+}

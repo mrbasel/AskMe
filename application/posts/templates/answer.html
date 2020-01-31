@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('posts.static', filename='answer.css') }}">
+{% endblock %}
+
+
+
+{% block content %}
+<main>
+  <div class="question">
+    <div class="question-tag">#{{ question.tags }}</div>
+    <h2>{{ question.content }}</h2>
+  </div>
+  <form id="answerForm" action="{{ url_for('posts.answerPage', questionId=question.id) }}" method="POST">
+    <textarea name="answer" rows="8" cols="80" placeholder="Write your answer" required></textarea>
+    <button type="submit" name="button">Submit</button>
+  </form>
+</main>
+{% endblock %}

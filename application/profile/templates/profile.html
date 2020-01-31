@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('profile.static', filename='profile.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+
+
+{% block content %}
+<main>
+  <div class="profile">
+    <img class="profile-img" src="{{ current_user.profileImg }}" alt="Profile image">
+    <h2 class="profile-username">{{ current_user.username }}</h2>
+    <p class="edit-profile">Change image</p>
+    <form id="change-img-form" enctype=multipart/form-data action="{{ url_for('profile.editPhoto') }}" method="POST">
+      <input type="file" name="image" class="edit-profile">
+      <input class="upload-file-btn" type="submit" name="" value="Submit">
+    </form>
+  </div>
+
+  <div class="container">
+    {% if questions %}
+    <h1>Your questions</h1>
+    {% else %}
+    <h1>You haven't posted any questions yet</h1>
+    {% endif %}
+    <div class="questions-column">
+      {% for question in questions %}
+      <div class="question">
+        {% if question.tags %}
+        <div class="question-tags">#{{ question.tags }}</div>
+        {% else %}
+        <div class="question-tags">#..</div>
+        {% endif %}
+        <h3 class="question-main">{{ question.content }}</h3>
+        <div class="action-bar">
+          <a class="delete-button" href="{{ url_for('profile.deleteQuestion', questionId= question.id) }}">Delete</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% if answers %}
+    <h1>Your answers</h1>
+    {% else %}
+    <h1>Your haven't answered any questions</h1>
+    {% endif %}
+    <div class="answers-column">
+      {% for answer in answers %}
+      <div class="answer">
+        <h3 class="question-answered">Answer to:{{ findQuestion(answer.questionId) }}</h3>
+        <div class="your-answer"><p>{{ answer.answerContent }}</p>
+          <a href="{{ url_for('profile.deleteAnswer', answerId=answer.id) }}" class="delete-button">Delete</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</main>
+{% endblock %}
+
+
+{% block script %}
+<script src="{{ url_for('profile.static', filename='script.js') }}" charset="utf-8"></script>
+{% endblock %}

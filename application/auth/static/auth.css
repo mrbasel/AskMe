@@ -1,0 +1,101 @@
+
+body {
+}
+
+
+#formWrapper {
+  position: relative;
+  width: 50%;
+  margin: 5em auto;
+  padding: 1em 1.5em;
+  padding-top: 3em;
+  background-color: #fff;
+  border: 1px solid #333;
+  box-shadow: 0 1px 4px #333;
+}
+
+.back-btn {
+  position: absolute;
+  top: .5em;
+  left: 1em;
+  width: 2em;
+  cursor: pointer;
+}
+
+
+#register-form {
+
+}
+
+.form-columns {
+  padding-right: 1em;
+}
+
+ /* Label and input container */
+.form-column {
+  /* margin: .5em auto; */
+  /* width: 50%; */
+  text-align: left;
+}
+
+/* Just label */
+.label {
+  display: block;
+  margin: .5em 0;
+}
+
+/* Just input */
+.form-input {
+  margin-bottom: 1em;
+  padding: .4em;
+  width: 100%;
+  font-size: 1.2em;
+  border-radius: 5px;
+  border: none;
+  background-color: #eee;
+
+}
+
+/* Label and input box */
+.label .form-input {
+  color: #333;
+
+}
+
+.register-submit-btn {
+  display: block;
+  padding: .5em 1em;
+  margin: .5em auto;
+  border: none;
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.errors {
+  color: red;
+}
+
+.redirect {
+  text-align: center;
+  margin: 1em 0;
+}
+
+
+.redirect a {
+  color: #0066ff;
+}
+
+/* media queries */
+
+@media screen and (max-width:750px){
+  #formWrapper {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width:400px){
+  #formWrapper {
+    width: 90%;
+  }
+
+}

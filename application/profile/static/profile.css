@@ -1,0 +1,128 @@
+/* Core styles */
+
+a {
+  cursor: pointer;
+}
+
+
+
+
+main {
+  /* display: flex; */
+  /* justify-content: flex-start; */
+  width: 50%;
+  margin: 3em auto;
+  text-align: center;
+}
+
+/* Profile */
+
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: .5em;
+  background-color: #fff;
+  text-align: center;
+  /* border-bottom: 2px solid silver; */
+}
+
+.profile-img {
+  width: 142px;
+  border: 1px solid #333;
+  border-radius: 80px;
+  margin: 1em;
+}
+
+.profile-username {
+  font-size: 1.8em
+}
+/*
+.profile input {
+  margin: 0 auto;
+} */
+
+.edit-profile {
+  margin: .5em auto;
+  color: silver;
+  cursor: pointer;
+}
+
+.edit-profile:hover {
+  text-decoration: underline;
+}
+
+#change-img-form {
+  display: none;
+}
+
+.upload-file-btn {
+  display: block;
+  margin: 1em auto;
+  padding: .5em 1em;
+}
+
+/* Questions column */
+
+.container {
+  margin: 3em 0;
+
+}
+
+.questions-column {
+  margin-bottom: 2em;
+}
+
+.question-main {
+  padding: .5em;
+}
+
+.delete-button {
+  position: absolute;
+  right: 1em;
+  bottom: .5em;
+  color: grey;
+  font-weight: 800;
+  cursor: pointer;
+  margin-top: 1em;
+
+}
+
+/* Answers column */
+
+.answer {
+  position: relative;
+  border: 1px solid #eee;
+  margin: .5em auto;
+  background-color: #fff;
+  color: #333;
+}
+
+.question-answered {
+  margin: 1em;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+
+.your-answer {
+  position: relative;
+}
+
+
+.your-answer p {
+  margin: 2em 0;
+  padding: 1.5em 1em;
+  text-align: left;
+  background-color: #eee;
+
+}
+
+
+/* Media queries */
+
+@media screen and (max-width:650px){
+  main {
+    width: 90%;
+  }
+}

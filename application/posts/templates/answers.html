@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('posts.static', filename='answers.css') }}">
+{% endblock %}
+
+
+
+{% block content %}
+<div class="main-wrapper">
+  <div id="question">
+    {% if question.tags %}
+    <div class="question-tags">#{{ question.tags }}</div>
+    {% endif %}
+    <h2 class="question-main">{{ question.content }}</h2>
+  </div>
+  <div class="answers">
+    {% if answers %}
+    <h2>Answers:</h2>
+    {% else %}
+    <h2 id="no-answers">No answers yet :(</h2>
+    {% endif %}
+    {% for answer in answers %}
+    <div class="answer">
+      <div class="user-img-wrapper">
+        <img class="user-img" src="{{ answer.answerer.profileImg }}" alt="user profile image">
+        <h4 class='username'>{{ answer.answerer.username }}</h4>
+      </div>
+      <p class="answer-main">{{ answer.answerContent }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
