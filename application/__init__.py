@@ -18,7 +18,7 @@ def findQuestion(questionId):
 
 
 
-def create_app(config_class=Config):
+def create_app(config_class=Config()):
     # Initialize app
     app = Flask(__name__)
     app.config.from_object(Config)
@@ -43,5 +43,9 @@ def create_app(config_class=Config):
 
     # Add function to jinja global functions
     app.jinja_env.globals.update(findQuestion=findQuestion)
+
+    # Create all tables
+    with app.app_context():
+        db.create_all()
 
     return app
